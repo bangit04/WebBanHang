@@ -1,13 +1,18 @@
 package vn.bang.WebBanHang.service;
 
+import jakarta.transaction.Transactional;
 import vn.bang.WebBanHang.controller.request.UserCreationRequest;
 import vn.bang.WebBanHang.controller.request.UserPasswordRequest;
 import vn.bang.WebBanHang.controller.request.UserUpdateRequest;
+import vn.bang.WebBanHang.controller.response.UserPageResponse;
 import vn.bang.WebBanHang.controller.response.UserResponse;
+import vn.bang.WebBanHang.model.UserEntity;
+import vn.bang.WebBanHang.repository.UserRepository;
 
 import java.util.List;
 
 public interface UserService {
+    UserPageResponse findAll(String keyword, String sort, int page, int size);
 
     List<UserResponse> findAll();
 
@@ -17,11 +22,11 @@ public interface UserService {
 
     UserResponse findByEmail(String email);
 
-    long save(UserCreationRequest request);
+    long save(UserCreationRequest req);
 
-    void update(UserUpdateRequest request);
+    void update(UserUpdateRequest req);
 
-    void changePassword(UserPasswordRequest request);
+    void changePassword(UserPasswordRequest req);
 
     void delete(Long id);
 }

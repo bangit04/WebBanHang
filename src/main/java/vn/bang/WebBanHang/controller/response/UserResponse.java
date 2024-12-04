@@ -1,19 +1,21 @@
 package vn.bang.WebBanHang.controller.response;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import vn.bang.WebBanHang.common.Gender;
+import vn.bang.WebBanHang.common.UserStatus;
+import vn.bang.WebBanHang.common.UserType;
 
 import java.io.Serializable;
 import java.util.Date;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
 public class UserResponse implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
-    private String gender;
+    private Gender gender;
     private Date birthday;
     private String userName;
     private String email;
@@ -22,16 +24,7 @@ public class UserResponse implements Serializable {
     public UserResponse() {
     }
 
-    public UserResponse(Long id, String firstName, String lastName, String gender, Date birthDay, String userName, String email, String phone) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.birthday = birthDay;
-        this.userName = userName;
-        this.email = email;
-        this.phone = phone;
-    }
+
 
     public String getUserName() {
         return userName;
@@ -65,12 +58,20 @@ public class UserResponse implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public Date getBirthDay() {

@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Min;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vn.bang.WebBanHang.common.Gender;
 import vn.bang.WebBanHang.controller.request.UserCreationRequest;
 import vn.bang.WebBanHang.controller.request.UserPasswordRequest;
 import vn.bang.WebBanHang.controller.request.UserUpdateRequest;
@@ -32,7 +33,7 @@ public class MockupUserController {
         userResponse1.setFirstName("Java");
         userResponse1.setLastName("Tay");
         userResponse1.setBirthDay(new Date());
-        userResponse1.setGender("");
+        userResponse1.setGender(Gender.MALE);
         userResponse1.setPhone("0987654321");
         userResponse1.setEmail("abc@gmail.com");
         UserResponse userResponse2 = new UserResponse();
@@ -41,7 +42,7 @@ public class MockupUserController {
         userResponse2.setFirstName("Leo");
         userResponse2.setLastName("Messi");
         userResponse2.setBirthDay(new Date());
-        userResponse2.setGender("");
+        userResponse2.setGender(Gender.MALE);
         userResponse2.setPhone("091234567");
         userResponse2.setEmail("xyz@gmail.com");
         List<UserResponse> userList = List.of(userResponse1,userResponse2);
@@ -63,7 +64,7 @@ public class MockupUserController {
         userDetail.setFirstName("Java");
         userDetail.setLastName("Tay");
         userDetail.setBirthDay(new Date());
-        userDetail.setGender("");
+        userDetail.setGender(Gender.MALE);
         userDetail.setPhone("0987654321");
         userDetail.setEmail("abc@gmail.com");
 

@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.type.SqlTypes;
+import vn.bang.WebBanHang.common.Gender;
 import vn.bang.WebBanHang.common.UserStatus;
 import vn.bang.WebBanHang.common.UserType;
 
@@ -13,22 +14,18 @@ import java.util.Date;
 
 @Entity
 @Table(name = "user")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+public class UserEntity extends AbstractEntity{
 
     @Column(length = 255, name = "first_name")
     private String firstName;
 
-    @Column(length = 255, name = "first_name")
+    @Column(length = 255, name = "last_name")
     private String lastName;
 
     @Column(length = 255, name = "gender")
-    private String gender;
+    private Gender gender;
 
-    @Column(name = "birthday")
+    @Column(name = "date_of_birth")
     @Temporal(TemporalType.DATE)
     private Date birthday;
 
@@ -45,33 +42,15 @@ public class UserEntity {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    //@JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(length = 255, name = "type")
     private UserType type;
 
     @Enumerated(EnumType.STRING)
-    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    //@JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(length = 255, name = "status")
     private UserStatus status;
 
-    @Column(length = 255, name = "created_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreationTimestamp()
-    private Date createdAt;
-
-    @Column(length = 255, name = "updated_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    @UpdateTimestamp
-    private Date updatedAt;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -89,11 +68,11 @@ public class UserEntity {
         this.lastName = lastName;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -153,19 +132,5 @@ public class UserEntity {
         this.status = status;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }
